@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: yt-dlp-proxy-api
+    env: docker
+    plan: free # Использование бесплатного тарифа Render
+    region: oregon # Можно изменить на frankfurt, если вы ближе к Европе
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
